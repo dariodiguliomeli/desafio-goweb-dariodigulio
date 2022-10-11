@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	list, err := LoadTicketsFromFile("../../tickets.csv")
+	list, err := LoadTicketsFromFile("./tickets.csv")
 	if err != nil {
 		panic("Couldn't load tickets")
 	}
@@ -24,7 +24,6 @@ func main() {
 		ticketsRouter.GET("getByCountry/:destination", ticketService.GetTicketsByCountry())
 		ticketsRouter.GET("getAverage/:destination", ticketService.AverageDestination())
 	}
-	// GET - “/ticket/getAverage/:dest”
 	if err := r.Run(); err != nil {
 		panic(err)
 	}

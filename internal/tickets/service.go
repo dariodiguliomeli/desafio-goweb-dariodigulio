@@ -19,6 +19,12 @@ func (s *TicketService) GetTotalTickets(destination string) ([]domain.Ticket, er
 	return ticketsByDestination, err
 }
 
-func (s *TicketService) AverageDestination(destination string) (interface{}, error) {
-	return nil, nil
+func (s *TicketService) AverageDestination(destination string) (float64, error) {
+	tickets, err := s.GetTotalTickets(destination)
+	totalPrice := 0.0
+	for _, ticket := range tickets {
+		totalPrice += ticket.Price
+	}
+	avg := totalPrice / float64(len(tickets))
+	return avg, err
 }

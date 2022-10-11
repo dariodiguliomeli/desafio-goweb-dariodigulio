@@ -18,7 +18,7 @@ func NewService(s Service) *Service {
 
 func (s *Service) GetTicketsByCountry() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		destination := c.Param("dest")
+		destination := c.Param("destination")
 		tickets, err := s.Service.GetTotalTickets(destination)
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error(), nil)
@@ -30,7 +30,7 @@ func (s *Service) GetTicketsByCountry() gin.HandlerFunc {
 
 func (s *Service) AverageDestination() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		destination := c.Param("dest")
+		destination := c.Param("destination")
 		avg, err := s.Service.AverageDestination(destination)
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error(), nil)

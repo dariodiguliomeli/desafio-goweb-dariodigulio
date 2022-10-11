@@ -6,7 +6,7 @@ import (
 )
 
 type TicketService struct {
-	repository Repository
+	Repository Repository
 }
 
 func (s TicketService) GetTotalTickets(c *gin.Context, destination string) ([]domain.Ticket, error) {

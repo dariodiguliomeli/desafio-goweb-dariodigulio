@@ -12,7 +12,7 @@ type Service struct {
 
 func NewService(s Service) *Service {
 	return &Service{
-		service: s,
+		service: s.service,
 	}
 }
 
